@@ -4,7 +4,7 @@ import './Product.css'
 const Product = (props) => {
   return (
     <div className='Product'>
-
+      {console.log(props)}
       <div className='card-box'>
         <div className='label-value'>
           <p>{props.product.title}</p>
