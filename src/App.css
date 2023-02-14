@@ -3,3 +3,12 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+.error-card{
+  padding: 10px;
+  margin: 20px;
+  background-color: #e24d4d;
+  color: #fff;
+  border-radius: 5px;
+  width: 50%  ;
+  text-align: center;
+}

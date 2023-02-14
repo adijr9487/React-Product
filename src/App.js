@@ -1,10 +1,15 @@
 import React from "react";
 import "./App.css";
-import Product from "./components/Product";
+import Product from "./components/Product/Product";
+import Search from "./components/Search/Search";
 import Loader from "./utils/loader/loader";
 // import products from "./data/product.js"
+
 function App() {
   const [products, setProducts] = React.useState(null);
+
+  const [search, setSearch] = React.useState("");
+  const [error, setError] = React.useState(null);
 
   React.useEffect(() => {
     fetch("https://dummyjson.com/products")
@@ -12,20 +17,37 @@ function App() {
       .then((data) => {
         setProducts(data.products);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        setError("Error while fetching data");
+      });
   }, []);
 
   const product = () => {
+    // error
+    if (error) {
+      return <div className="error-card">{error}</div>;
+    }
+    // loading
     if (products === null) {
       return <Loader />;
+    } else if (products.length === 0) {
+      return <div className="error-card">No products found</div>;
     } else {
-      return products.map((product) => (
-        <Product key={product.id} product={product} />
-      ));
+      return products.map((product) => {
+        if (product.title.toLowerCase().includes(search.toLowerCase())) {
+          return <Product key={product.id} product={product} />;
+        }
+        return null;
+      });
     }
   };
 
-  return <div className="App">{product()}</div>;
+  return (
+    <>
+      <Search setSearch={setSearch} />
+      <div className="App">{product()}</div>
+    </>
+  );
 }
 
 export default App;
