@@ -16,7 +16,7 @@ const Product = (props) => {
           <label>Description</label>
         </div>
         <div className='label-value'>
-          <p style={{'font-size': '2rem'}}>${props.product.price}</p>
+          <p style={{'fontSize': '2rem'}}>${props.product.price}</p>
         </div>
         <hr />
         <div className='details'>
