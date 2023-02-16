@@ -1,0 +1,27 @@
+.search{
+    box-shadow: 0 0 5px #aaa;
+    background-color: #aaa;
+    display: flex;
+    margin: auto;
+}
+.search input{
+    width: 100%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #141414;
+}
+.search button{
+    width: 100px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.search button:hover{
+    width: 100px;
+    border: none;
+    background-color: #aaa;
+    cursor: pointer;
+}
