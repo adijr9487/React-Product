@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import Product from "./components/Product/Product";
 import Search from "./components/Search/Search";
@@ -6,12 +6,12 @@ import Loader from "./utils/loader/loader";
 // import products from "./data/product.js"
 
 function App() {
-  const [products, setProducts] = React.useState(null);
+  const [products, setProducts] = useState(null);
 
-  const [search, setSearch] = React.useState("");
-  const [error, setError] = React.useState(null);
+  const [search, setSearch] = useState("");
+  const [error, setError] = useState(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     fetch("https://dummyjson.com/products")
       .then((response) => response.json())
       .then((data) => {
